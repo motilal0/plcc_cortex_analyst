@@ -1,0 +1,745 @@
+name: PLCC
+tables:
+  - name: plcc
+    description: PLCC details for different projects and customers.
+    base_table:
+      database: CORTEX_ANALYST_DEMO_1
+      schema: revenue_timeseries
+      table: plcc
+    time_dimensions:
+      - name: month
+        expr: date
+        description: date with measures of total resources, total revenue, total cost, margin and ebidta.
+        unique: false
+        data_type: date
+    dimensions:
+      - name: year
+        expr: year
+        description: financial year.
+        unique: false
+        data_type: varchar
+        sample_values:
+          - 2022-23
+          - 2023-24
+          - 2024-25
+      - name: quarter
+        expr: qtr
+        description: quarter of financial year.
+        unique: false
+        data_type: varchar
+        sample_values:
+          - Q1
+          - Q2
+          - Q3
+          - Q4
+      - name: project_code
+        expr: project_code
+        description: project code.
+        unique: false
+        data_type: varchar
+        sample_values:
+          - SP100154
+          - SS300261
+          - SS300292
+          - SS300295
+          - SS300299
+          - SS300309
+          - SS300318
+          - SS300325
+          - SS300326
+          - SS300327
+          - SS300330
+          - SS400287
+          - SS400290
+          - SS400294
+          - SS400306
+          - RP300009
+          - RP300013
+          - RP400001
+          - RP400011
+          - SS300252
+          - SS300262
+          - SS300283
+          - SS300301
+          - SS300305
+          - SS300308
+          - SS300332
+          - PD499999
+          - SP100152
+          - SS300272
+          - SS300303
+          - SS300335
+          - SS400305
+          - CC400037
+          - CC400040
+          - CC400041
+          - CC400044
+          - CC400048
+          - IM300052
+          - IM300091
+          - IM300158
+          - IM300169
+          - IM400212
+          - IM400216
+          - IM400218
+          - IS400003
+          - SS300256
+          - SS300266
+          - SS400224
+          - SS400229
+          - SS400250
+          - SS400283
+          - SS400298
+          - PN399999
+          - PN499999
+          - ST400179
+          - SS400046
+          - SS400249
+          - SS400303
+          - ST400176
+          - ST400204
+          - ST400211
+          - SS400308
+          - SS300271
+          - SS300314
+          - SS300334
+          - SP100157
+          - SS300328
+          - SS400312
+          - RP100001
+          - RP100009
+          - SS300319
+          - SS300339
+          - SS300285
+          - SS400322
+          - SS400324
+          - SS400325
+          - IC400001
+          - IC400002
+          - SS300099
+          - SS300342
+          - SS300343
+          - IM400223
+          - IM400224
+          - CC400050
+          - SS400332
+          - SP300101
+          - IM400225
+          - IC400003
+          - IC400004
+          - SS400336
+          - SS400337
+          - SP300102
+          - SS500102
+          - SS500103
+          - SS500104
+          - SS500105
+          - SS500108
+          - IM400226
+          - SS400339
+          - SS400340
+          - SS400342
+          - SS400344
+          - SS400345
+          - SS400347
+          - SS400348
+          - SS400349
+          - SS400350
+          - CC400051
+          - SS500112
+          - SS400353
+          - SS400354
+          - SS400355
+          - SS500113
+          - AN400014
+          - CC400052
+          - SS300345
+          - IC400006
+          - AN300014
+          - SS400359
+          - SS400360
+          - SS400361
+          - RP400015
+      - name: project_name
+        expr: project_name
+        description: project code.
+        unique: false
+        data_type: varchar
+        sample_values:
+          - Software Products- PMB-Solace Agent for ITRS
+          - Software Service - PMB- Contract Note generation module
+          - Software Service - PMB XBRL -AMC
+          - Software Service - PMB- Contract Generation AMC Support 
+          - Software Service - PMB-Neaps AMC
+          - Software Service-PMB-IFSC Website 
+          - Software Service -PMB-STP Support HUB
+          - Software Service -PMB-Bank Integration API
+          - Software Service -PMB-Trading Member Integration API
+          - Software Service -PMB-XBRL - BRSR
+          - Software Service -PMB-Solace Onsite Support
+          - Software Service -Contract Generation - Production Support
+          - PMB- Solace -Enhanced Support
+          - Software Service -PMB-IFSC-Website Dev & Mtns
+          - Software Service -PMB-Website
+          - RPA - Automation (24 Process ) - PMB
+          - RPA - Automation -LIB
+          - RPA - PMB - Robotic Automation  T&M
+          - RPA - LIB -T&M
+          - Software Services - KRA Dashboard - CPMS
+          - Software Service - PMB- Document Management System
+          - Software Services - PMB - Trading Simulator
+          - Software Service -PMB Vendor Management System
+          - Software Service -PMB-DMS-CSR Portal
+          - Software Service-PMB-Volume Generation Tool -AMC
+          - Software Service-PMB-Volume Gen. Onsite Support
+          - Practice Bench –  PMB-Data & Analytics 
+          - Software Products- PMB-Client Profiling
+          - Software Service - PMB - Machine Learning
+          - Software Service -PMB -Client & TM Profiling
+          - Software Service-PMB-Shareholder Repository Platform
+          - Software Service -PMB-SnowFlake Migration
+          - Customer Care Services - NOW Support
+          - Customer Care Services - NOW -PMB-NCFM
+          - Customer Care Services - NOW -PMB-MSM
+          - Customer Care Services - Regulatory Function  -PMB
+          - Customer Care Services - PMB IFSC-Helpdesk Support
+          - IMS - PMB - Stratus MMC Services
+          - IMS- PMB- Co-Location Project
+          - IMS - PMB - Stratus T&M
+          - IMS-PMB-VMS-AWC Cloud Hosting
+          - IMS-PMB-BCP
+          - IMS-PMB-Incident Manager
+          - IMS-PMB-Project Management (PMO)
+          - ISRC - PMB
+          - Software Service - PMB-Enterprise Applications support
+          - Software Service - PMB - CTCL-CRM Support
+          - Software Services - PMB Infotech Gift City -Support Service
+          - Software Services - PMB IFSC Clearing Gift City Sup Service
+          - Software Services - PMB -Trading Test Environment Management
+          - Software Service - PMB-PSM & Epsilon
+          - Software Services -PMB -GIFT City- SGX DTX
+          - Practice Bench – PSG Non PMB
+          - Practice Bench-PSG -PMB
+          - Software Testing-LIB-T&M
+          - Software Services - T&M - PMB - Development
+          - Software Services - PMB IFSC Gift City Trading Development
+          - Software Service -PMB-Collateral segregation
+          - Software Testing - T&M - PMB - BAT
+          - Software Testing- PMB -Web Testing
+          - Software Testing-PMB -MF Testing
+          - Software Service -PMB-Data Scientist (Surveillance) 
+          - Software Service - PMB - PPMS
+          - Software Service -PMB-DMS-AMC-CSR Portal
+          - Software Service-PMB-DataSwitch
+          - Software Products -PMB-Dataswitch Licence
+          - Software Service -PMB-XBRL - Misc
+          - Software Service -PMB-VGT Load Pumping
+          - RPA - PMB - Robotic Automation
+          - RPA - LIB-Automation Licence
+          - Software Service -PMB-XBRL Annual Report (C&I Taxonomy)
+          - Software Service-PMB Indices -Website Mtns & Support
+          - Software Service - PMB - IBM LicePMB ( API -fication)
+          - Software Services-PMB (BKC)-New Batch 
+          - Software Services-PMB SEBI-Surveilance
+          - Software Services-PMB DWH PM Office
+          - ICS - PMB (BKC) - New Batch
+          - ICS - PMB BCP (Chennai)-New Batch
+          - Software Services - PMB Birdstep- Dev and Support
+          - Software Service-PMB DevOps_McKiPMBy Squad /Trading ADM 
+          - Software Service-PMB IFSC -VGT Development
+          - IMS-PMB -Trading OFS Team
+          - IMS-PMB_Infra & OA Support
+          - Customer Care Services - PMB-DC
+          - Software Services-PMB -Algo Trading MLOps
+          - Software Product Traded LicePMB -PMB-Azul Platform Licence
+          - IMS-PMB- BCP_Chennai
+          - ICS - PMB Data Room
+          - ICS - PMB Extranet Revamp
+          - Software Services-PMB -ExtraNet T&M
+          - Software Service - PMB-PSM_Managed T&M
+          - Software Service - PMB- Contract Generation AMC Support
+          - Software Service - PMB - PPMS T&M
+          - Software Service - PMB- Document Management System T&M
+          - Customer Care Services - PMB -Helpdesk Operation Service
+          - Software Service - PMB XBRL-Misc -AMC
+          - Software Service - PMB-Technology Operations Support
+          - Software Service-PMB-Log Aggregator & Security Ana.Platform
+          - Software Service-PMB-Central Devops
+          - Software Service-PMB_IFSC-Volume Generation Tool -AMC
+          - Analytics- LIB Application Dev.
+          - Customer Care Services - PMB -CCS_Mutual Fund
+          - Software Service - LIB Microservice Arch.Asst.
+          - ICS - PMB NDAL Operation
+          - Analytics- LIB Insightomatic
+          - Software Service - PMB-Technology Operation Support T&M
+          - Software Service - PMB-Technology Operation Sup.Managed T&M
+          - Software Service - NCL-PSM_Managed T&M
+          - RPA - PMB CLRG - Robotic Automation_NCL PSM
+      - name: account_name
+        expr: account_name
+        description: account name.
+        unique: false
+        data_type: varchar
+        sample_values:
+          - PMB
+          - LIB
+      - name: practice_area
+        expr: practice_area
+        description: practice area.
+        unique: false
+        data_type: varchar
+        sample_values:
+          - App Modernisation
+          - PSG-PMB
+          - Business Transformation
+          - Data & Analytics
+          - IMS
+          - ISRC
+          - PSG-Non PMB
+          - ICS
+      - name: bu
+        expr: bu
+        description: businee unit.
+        unique: false
+        data_type: varchar
+        sample_values:
+          - Digital
+      - name: b_type
+        expr: b_type
+        description: business type.
+        unique: false
+        data_type: varchar
+        sample_values:
+          - Project
+          - Bench
+      - name: region_country
+        expr: region_country
+        description: region country.
+        unique: false
+        data_type: varchar
+        sample_values:
+          - IND
+      - name: entity_india_us
+        expr: entity_india_us
+        description: entity india or us.
+        unique: false
+        data_type: varchar
+        sample_values:
+          - PMBIT-IND-SA
+    measures:
+      - name: total_resources
+        expr: total_resources
+        description: total resources for the given day
+        synonyms: ["resouces", "fte","full time employees","total_resources","total resources"]
+        default_aggregation: sum
+        data_type: number
+      - name: total_revenue
+        expr: total_revenue
+        description: total revenue for the given day
+        synonyms: ["top line", "income","total_revenue","total revenue","revenue"]
+        default_aggregation: sum
+        data_type: number
+      - name: total_direct_cost
+        expr: total_direct_cost
+        description: total direct cost for the given day
+        synonyms: ["cost", "liability","total_direct_cost","total direct cost","total cost"]
+        default_aggregation: sum
+        data_type: number
+      - name: net_margin
+        expr: net_margin
+        description: net margin for the given day
+        synonyms: ["profit","bottom line","net_margin","net margin","margin"]
+        data_type: number
+      - name: ebidta
+        expr: ebidta
+        description: ebidta for the given day
+        synonyms: ["core income","earnings","ebitda","ebidta"]
+        data_type: number
+        default_aggregation: sum
+verifiedQueries:
+  - name: "Unique Account Names"
+    semanticModelName: PLCC
+    question: "What are all the unique account names over the entire available time period?"
+    sql: |
+      SELECT DISTINCT account_name
+      FROM plcc
+    useAsOnboardingQuestion: true
+  - name: "Total Revenue Per Project for FY 2022-23"
+    semanticModelName: PLCC
+    question: "What is the total revenue for each project in the financial year 2022-23?"
+    sql: |
+      SELECT project_name, SUM(total_revenue) AS total_revenue
+      FROM plcc
+      WHERE year = '2022-23'
+      GROUP BY project_name
+    useAsOnboardingQuestion: true
+  - name: "Total Resources Utilized for FY 2022-23"
+    semanticModelName: PLCC
+    question: "What is the total resources utilized in the financial year 2022?"
+    sql: |
+      SELECT SUM(total_resources) AS total_resources_utilized
+      FROM plcc
+      WHERE year = '2022-23'
+    useAsOnboardingQuestion: true
+  - name: "Total Revenue for Each Quarter"
+    semanticModelName: PLCC
+    question: "What is the total revenue for each quarter over the entire available time period?"
+    sql: |
+      SELECT quarter, SUM(total_revenue) AS total_revenue_per_quarter
+      FROM plcc
+      GROUP BY quarter
+    useAsOnboardingQuestion: true
+  # Time-Based Analysis
+  - name: "Year-over-Year Growth in Quarterly Revenue"
+    semanticModelName: PLCC
+    question: "What is the year-over-year growth in total revenue for each quarter?"
+    sql: |
+      WITH parsed_years AS (
+        SELECT
+          *,
+          TRY_CAST(LEFT(year, 4) AS INT) AS start_year,
+          TRY_CAST(RIGHT(year, 2) AS INT) + 2000 AS end_year
+        FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      ),
+      quarterly_revenue AS (
+        SELECT
+          year,
+          qtr AS quarter, -- Ensure 'qtr' is explicitly aliased as 'quarter'
+          start_year,
+          SUM(total_revenue) AS total_revenue
+        FROM parsed_years
+        GROUP BY
+          year,
+          qtr, -- Use 'qtr' explicitly to avoid mismatches
+          start_year
+      ),
+      yoy_growth AS (
+        SELECT
+          curr.year AS curr_year,
+          curr.quarter AS curr_quarter,
+          curr.total_revenue AS curr_revenue,
+          prev.year AS prev_year,
+          prev.quarter AS prev_quarter,
+          prev.total_revenue AS prev_revenue,
+          curr.total_revenue - prev.total_revenue AS yoy_chg,
+          (
+            curr.total_revenue - prev.total_revenue
+          ) / NULLIF(prev.total_revenue, 0) AS yoy_pct_chg
+        FROM quarterly_revenue AS curr
+        LEFT JOIN quarterly_revenue AS prev
+          ON curr.quarter = prev.quarter 
+          AND curr.start_year = prev.start_year + 1
+      )
+      SELECT
+        *
+      FROM yoy_growth
+      ORDER BY
+        curr_year DESC,
+        curr_quarter DESC NULLS LAST;
+    useAsOnboardingQuestion: true
+  - name: "12-Month Moving Average of Total Revenue"
+    semanticModelName: PLCC
+    question: "What is the moving average of total revenue over the past 12 months?"
+    sql: |
+      SELECT 
+        date_trunc('month', month) AS month_truncated, -- Truncate 'month' to get consistent month values
+        AVG(total_revenue) OVER (
+          ORDER BY date_trunc('month', month) ROWS BETWEEN 11 PRECEDING AND CURRENT ROW
+        ) AS moving_avg_revenue
+      FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      ORDER BY month_truncated DESC;
+    useAsOnboardingQuestion: true
+  - name: "Total Revenue Contribution by Month for the Last Financial Year"
+    semanticModelName: PLCC
+    question: "What is the total revenue contribution by month for the last financial year?"
+    sql: |
+      SELECT
+        EXTRACT(MONTH FROM CURRENT_DATE) AS month,
+        SUM(total_revenue) AS total_revenue
+      FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      WHERE year = '2022-23'
+      GROUP BY month
+      ORDER BY month;
+    useAsOnboardingQuestion: true
+  - name: "Highest Revenue-Generating Project in Each Quarter over the Last 3 Years"
+    semanticModelName: PLCC
+    question: "What was the highest revenue-generating project in each quarter over the last 3 years?"
+    sql: |
+      SELECT
+        year,
+        qtr AS quarter,
+        project_name,
+        SUM(total_revenue) AS total_revenue
+      FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      WHERE year BETWEEN '2020-21' AND '2022-23'
+      GROUP BY year, quarter, project_name
+      ORDER BY total_revenue DESC
+      LIMIT 1;
+    useAsOnboardingQuestion: true
+  # Resource and Cost Analysis
+  - name: "Cost Per Resource for Each Project in the Last Financial Year"
+    semanticModelName: PLCC
+    question: "What is the cost per resource for each project in the last financial year?"
+    sql: |
+      SELECT
+        project_name,
+        CASE 
+          WHEN SUM(total_resources) = 0 THEN NULL -- Avoid division by zero
+          ELSE SUM(total_direct_cost) / SUM(total_resources) 
+        END AS cost_per_resource
+      FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      WHERE year = (
+        SELECT MAX(year) 
+        FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+        WHERE year LIKE '____-__' -- Ensures correct year format
+      )
+      GROUP BY project_name
+      ORDER BY cost_per_resource DESC;
+    useAsOnboardingQuestion: true
+  - name: "Average Resource Utilization for Projects with Revenue Exceeding $1M"
+    semanticModelName: PLCC
+    question: "What is the average resource utilization for projects with revenue exceeding $1M?"
+    sql: |
+      SELECT
+        project_name,
+        AVG(total_resources) AS avg_resources_utilized
+      FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      WHERE total_revenue > 1000000
+      GROUP BY project_name
+      ORDER BY avg_resources_utilized DESC;
+    useAsOnboardingQuestion: true
+  # Customer and Account Analysis
+  - name: "Top 20% Revenue Accounts"
+    semanticModelName: PLCC
+    question: "Which accounts have contributed the top 20% of revenue in the last financial year?"
+    sql: |
+      WITH latest_year AS (
+        SELECT MAX(year) AS max_year
+        FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      ),
+      account_revenue AS (
+        SELECT 
+          account_name, 
+          SUM(total_revenue) AS total_revenue
+        FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+        WHERE year = (SELECT max_year FROM latest_year)
+        GROUP BY account_name
+      )
+      SELECT 
+        account_name, 
+        total_revenue
+      FROM account_revenue
+      WHERE total_revenue >= (
+        SELECT PERCENTILE_CONT(0.80) WITHIN GROUP (ORDER BY total_revenue)
+        FROM account_revenue
+      )
+    useAsOnboardingQuestion: true
+  - name: "Account Retention Status"
+    semanticModelName: PLCC
+    question: "Which accounts have been retained over the last 3 years?"
+    sql: |
+      WITH active_accounts AS (
+        SELECT
+          account_name,
+          COUNT(DISTINCT year) AS active_years,
+          CASE
+            WHEN COUNT(DISTINCT year) = 3 THEN 'Retained'
+            ELSE 'Not Retained'
+          END AS retention_status
+        FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+        WHERE year >= TO_CHAR(TO_NUMBER((SELECT MAX(SUBSTRING(year, 1, 4)) FROM cortex_analyst_demo_1.revenue_timeseries.plcc)) - 2)
+          AND year <= (SELECT MAX(year) FROM cortex_analyst_demo_1.revenue_timeseries.plcc)
+        GROUP BY account_name
+      )
+      SELECT 
+        account_name, 
+        active_years, 
+        retention_status
+      FROM active_accounts
+      WHERE active_years = 3
+    useAsOnboardingQuestion: true
+  - name: "Average Revenue by Account for the Last 5 Years"
+    semanticModelName: PLCC
+    question: "What is the average revenue by account for the last 5 years?"
+    sql: |
+      WITH dynamic_years AS (
+        SELECT 
+          MAX(CAST(SUBSTRING(year, 1, 4) AS INT)) AS max_start_year, -- Get the latest start year
+          MIN(CAST(SUBSTRING(year, 1, 4) AS INT)) AS min_start_year -- Get the earliest start year
+        FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      )
+      SELECT
+        account_name,
+        AVG(total_revenue) AS avg_revenue
+      FROM cortex_analyst_demo_1.revenue_timeseries.plcc,
+           dynamic_years
+      WHERE 
+        CAST(SUBSTRING(year, 1, 4) AS INT) BETWEEN dynamic_years.min_start_year AND dynamic_years.max_start_year
+      GROUP BY account_name
+      ORDER BY avg_revenue DESC;
+    useAsOnboardingQuestion: true
+  # Profitability and Performance Metrics
+  # - name: "Gross Margin for Each Project Over the Last Two Financial Years"
+    # semanticModelName: PLCC
+    # question: "What is the gross margin for each project over the last two financial years?"
+    # sql: |
+      # SELECT
+        # project_name,
+        # SUM(total_revenue) - SUM(cost) AS gross_margin
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # WHERE year BETWEEN '2021-22' AND '2022-23'
+      # GROUP BY project_name
+      # ORDER BY gross_margin DESC;
+    # useAsOnboardingQuestion: true
+  # - name: "Projects Exceeding Planned Budgets"
+    # semanticModelName: PLCC
+    # question: "Which projects have exceeded their planned budgets, and by how much?"
+    # sql: |
+      # SELECT
+        # project_name,
+        # SUM(total_revenue) - SUM(planned_budget) AS budget_variance
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # GROUP BY project_name
+      # HAVING budget_variance > 0;
+    # useAsOnboardingQuestion: true
+  # - name: "Average Time to Complete a Project Over the Last 3 Years"
+    # semanticModelName: PLCC
+    # question: "What is the average time to complete a project over the past 3 years?"
+    # sql: |
+      # WITH recent_years AS (
+        # SELECT DISTINCT 
+          # LEFT(YEAR, 4) AS start_year
+        # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+        # WHERE LEFT(YEAR, 4) IN ('2022', '2023', '2024') -- Include the relevant years
+        # ORDER BY start_year DESC
+        # LIMIT 3
+      # ),
+      # project_duration AS (
+        # SELECT
+          # PROJECT_CODE,
+          # PROJECT_NAME,
+          # -- Extract start year and end year from the 'YEAR' column
+          # TO_DATE(CONCAT(LEFT(YEAR, 4), '-01-01'), 'YYYY-MM-DD') AS project_start_date,
+          # TO_DATE(CONCAT(RIGHT(YEAR, 2), '-12-31'), 'YY-MM-DD') AS project_end_date
+        # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+        # WHERE LEFT(YEAR, 4) IN (SELECT start_year FROM recent_years)
+        # GROUP BY PROJECT_CODE, PROJECT_NAME, YEAR
+      # )
+      # SELECT
+        # PROJECT_NAME,
+        # AVG(DATEDIFF(MONTH, project_start_date, project_end_date)) AS avg_time_to_complete_months
+      # FROM project_duration
+      # GROUP BY PROJECT_NAME
+      # ORDER BY avg_time_to_complete_months;
+    # useAsOnboardingQuestion: true
+  # Trend and Pattern Recognition
+  # - name: "Top 5 Months with the Highest Revenue"
+    # semanticModelName: PLCC
+    # question: "What are the top 5 months with the highest revenue over the entire available time period?"
+    # sql: |
+      # SELECT
+        # EXTRACT(MONTH FROM transaction_date) AS month,
+        # SUM(total_revenue) AS total_revenue
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # GROUP BY month
+      # ORDER BY total_revenue DESC
+      # LIMIT 5;
+    # useAsOnboardingQuestion: true
+  # - name: "Recurring Patterns in Resource Utilization during the Last 3 Financial Years"
+    # semanticModelName: PLCC
+    # question: "What are the recurring patterns in resource utilization during the last 3 financial years?"
+    # sql: |
+      # SELECT
+        # EXTRACT(MONTH FROM transaction_date) AS month,
+        # AVG(resources_utilized) AS avg_resources_utilized
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # WHERE year BETWEEN '2020-21' AND '2022-23'
+      # GROUP BY month
+      # ORDER BY avg_resources_utilized DESC;
+    # useAsOnboardingQuestion: true
+  # - name: "Quarters Consistently Underperforming in Terms of Revenue"
+    # semanticModelName: PLCC
+    # question: "Which quarters consistently underperform in terms of revenue, and why?"
+    # sql: |
+      # SELECT
+        # year,
+        # qtr AS quarter,
+        # SUM(total_revenue) AS total_revenue
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # GROUP BY year, quarter
+      # HAVING total_revenue < 1000000
+      # ORDER BY total_revenue ASC;
+    # useAsOnboardingQuestion: true
+  # Anomalies and Outliers
+  # - name: "Revenue Variance Greater Than 20% from Projections"
+    # semanticModelName: PLCC
+    # question: "Which projects have a revenue variance greater than 20% from their projections?"
+    # sql: |
+      # SELECT
+        # project_name,
+        # SUM(total_revenue) - SUM(planned_revenue) AS revenue_variance
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # GROUP BY project_name
+      # HAVING ABS(revenue_variance) > 0.2 * SUM(planned_revenue);
+    # useAsOnboardingQuestion: true
+  # - name: "Highest Single Revenue Transaction in the Last Year"
+    # semanticModelName: PLCC
+    # question: "What is the highest single revenue transaction in the last year, and which account made it?"
+    # sql: |
+      # SELECT
+        # MAX(total_revenue) AS highest_revenue,
+        # account_name
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # WHERE transaction_date >= '2023-01-01'
+      # GROUP BY account_name
+      # ORDER BY highest_revenue DESC
+      # LIMIT 1;
+    # useAsOnboardingQuestion: true
+  # - name: "Most Underutilized Resources Over the Last Financial Year"
+    # semanticModelName: PLCC
+    # question: "What are the most underutilized resources over the last financial year?"
+    # sql: |
+      # SELECT
+        # resource_name,
+        # SUM(resources_utilized) AS total_utilized
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # WHERE year = '2022-23'
+      # GROUP BY resource_name
+      # HAVING total_utilized < 1000
+      # ORDER BY total_utilized ASC;
+    # useAsOnboardingQuestion: true
+  # Aggregated and Composite Metrics
+  # - name: "Cumulative Revenue for All Projects Grouped by Industry"
+    # semanticModelName: PLCC
+    # question: "What is the cumulative revenue for all projects grouped by industry?"
+    # sql: |
+      # SELECT
+        # industry,
+        # SUM(total_revenue) AS cumulative_revenue
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # GROUP BY industry
+      # ORDER BY cumulative_revenue DESC;
+    # useAsOnboardingQuestion: true
+  # - name: "Contribution of Each Account to Total Revenue in Percentage"
+    # semanticModelName: PLCC
+    # question: "What is the contribution of each account to the total revenue in percentage terms?"
+    # sql: |
+      # SELECT
+        # account_name,
+        # (SUM(total_revenue) / (SELECT SUM(total_revenue) FROM cortex_analyst_demo_1.revenue_timeseries.plcc)) * 100 AS contribution_percentage
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # GROUP BY account_name
+      # ORDER BY contribution_percentage DESC;
+    # useAsOnboardingQuestion: true
+  # - name: "Total Revenue Split by Regions Over the Past Two Years"
+    # semanticModelName: PLCC
+    # question: "What is the total revenue split by regions over the past two years?"
+    # sql: |
+      # SELECT
+        # region,
+        # SUM(total_revenue) AS total_revenue
+      # FROM cortex_analyst_demo_1.revenue_timeseries.plcc
+      # WHERE year BETWEEN '2022-23' AND '2023-24'
+      # GROUP BY region
+      # ORDER BY total_revenue DESC;
+    # useAsOnboardingQuestion: true
